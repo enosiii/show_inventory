@@ -57,7 +57,19 @@
       50% { transform: scale(0.95); }
       100% { transform: scale(1); }
     }
+
+    footer {
+      margin-top: auto;
+    }
   </style>
+  
+  <title>TXT to CSV</title>
+  <link rel="icon" href="TXT to CSV.png" type="image/png">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#007bff">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+
 </head>
 <body>
   <form id="textForm">
@@ -96,6 +108,36 @@ PID: GLC-LH-SMD        , VID: V02, SN: OPMXXXXXXX
     <input type="button" value="Convert to CSV" onclick="submitForm()">
   </form>
 
+  <script src="install.js"></script>
   <script src="script.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js')
+        .then((registration) => {
+          console.log('Service Worker registered with scope:', registration.scope);
+        })
+        .catch((error) => {
+          console.error('Service Worker registration failed:', error);
+        });
+    }
+  </script>
+
 </body>
+
+<!-- Footer -->
+<footer class="bg-dark text-white text-center py-3">
+  <h6>© 2025 Daddymon | Built with ♥</h6>
+
+  <div class="d-flex justify-content-center mt-2">
+    <button id="installPWA" class="btn btn-success" style="display: none;">
+      Install App
+    </button>
+  </div>
+
+    <!-- Donation Section -->
+    <a href="https://www.paypal.me/enosrigortan">
+        <img src="https://img.shields.io/badge/Donate-PayPal-blue.svg" style="height: 20px; text-align: center;">
+    </a>
+    
+</footer>
 </html>
