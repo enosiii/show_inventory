@@ -1,4 +1,5 @@
 {
+    "id": "/show_inventory/",
     "short_name": "TXT2CSV",
     "name": "TXT to CSV Converter",
     "description": "A tool to convert show inventory data into CSV format.",
@@ -16,7 +17,7 @@
         "purpose": "any maskable"
       }
     ],
-    "start_url": "/",
+    "start_url": "/index.html",
     "background_color": "#f9f9f9",
     "display": "standalone",
     "scope": "/",
