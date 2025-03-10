@@ -1,11 +1,11 @@
 const CACHE_NAME = 'txt2csv-v1';
 const ASSETS_TO_CACHE = [
-  '/',
-  '/index.html',
-  '/script.js',
-  '/TXT to CSV.png',
-  '/TC192.png',
-  '/TC512.png'
+  '/show_inventory/',
+  '/show_inventory/index.html',
+  '/show_inventory/script.js',
+  '/show_inventory/TXT to CSV.png',
+  '/show_inventory/TC192.png',
+  '/show_inventory/TC512.png'
 ];
 
 // Install the service worker and cache assets
