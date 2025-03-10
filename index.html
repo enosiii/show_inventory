@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+    form {
+      max-width: 80%;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    textarea {
+      width: calc(100% - 22px); /* Full width minus padding and border */
+      padding: 10px;
+      border: 1px solid #007bff;
+      border-radius: 5px;
+      resize: vertical;
+      margin-bottom: 10px;
+    }
+    input[type="button"], select {
+      background-color: #007bff;
+      color: #ffffff;
+      border: none;
+      width: calc(100%);
+      padding: 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    input[type="button"]:hover, select:hover {
+      background-color: #0056b3;
+    }
+    input[type="button"]:active, select:active {
+      background-color: #003865; /* Darker blue on click */
+      animation: clickEffect 0.4s ease;
+    }
+    select {
+      margin-bottom: 15px;
+      -webkit-appearance: none; /* Removes default chrome and safari style */
+      -moz-appearance: none; /* Removes default style Firefox */
+      appearance: none; /* Removes default browser style*/
+      padding-right: 1.5em; /* Make space for custom arrow */
+      background-image: url('data:image/svg+xml;utf8,<svg fill="%23ffffff" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+      background-repeat: no-repeat;
+      background-position-x: 95%;
+      background-position-y: 50%;
+    }
+    @keyframes clickEffect {
+      0% { transform: scale(1); }
+      50% { transform: scale(0.95); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <form id="textForm">
+    <select id="patternSelector">
+      <option value="ASR">CISCO</option>
+      <option value="NCS">N/A</option>
+    </select>
+    <textarea name="text" rows="28" placeholder="Enter text.
+  Example:
+      
+  ##ASR
+RP/0/RSP0/CPU0:NODE#show inventory 
+
+Wed May  8 12:00:00.000 PHT
+NAME: &quot;module 0/RSP0/CPU0&quot;, DESCR: &quot;ASR 9001, Route Switch Processor with 8GB memory&quot;
+PID: ASR9001-RP, VID: V01 , SN: FOCXXXXXXX
+
+NAME: &quot;module 0/0/CPU0&quot;, DESCR: &quot;ASR9001S Modular Line Card&quot;
+PID: ASR9001-LC-S, VID: V01 , SN: FOCXXXXXXX
+
+  ##NCS
+RP/0/RP0/CPU0:ACC00N92CICUW01#show inventory 
+Wed Dec  7 12:00:00.000 PST
+NAME: &quot;0/0&quot;, DESCR: &quot;NC55A2 MOD Base HD Virtual Line Card&quot;
+PID: NCS-55A2-MOD-HD-S , VID: V04, SN: FOCXXXXXXX
+
+NAME: &quot;0/RP0&quot;, DESCR: &quot;NC55A2 MOD Base HD Route Processor Card&quot;
+PID: NCS-55A2-MOD-HD-S , VID: V04, SN: FOCXXXXXXX
+
+NAME: &quot;GigabitEthernet0/0/0/0&quot;, DESCR: &quot;Cisco SFP 1G 1000BASE-T Pluggable Optics Module&quot;
+PID: GLC-TE            , VID: V03, SN: ACWXXXXXXX
+
+NAME: &quot;GigabitEthernet0/0/0/1&quot;, DESCR: &quot;Cisco SFP 1G 1000BASE-LX Pluggable Optics Module&quot;
+PID: GLC-LH-SMD        , VID: V02, SN: OPMXXXXXXX
+      "></textarea>
+    <input type="button" value="Convert to CSV" onclick="submitForm()">
+  </form>
+
+  <script src="script.js"></script>
+</body>
+</html>
